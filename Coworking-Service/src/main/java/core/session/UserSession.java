@@ -272,14 +272,21 @@ public class UserSession extends Session {
                 System.out.println(ALREADY_BOOKED_TIME);
                 startUserSession(user);
             }
-        }
+        } else {
+            List<Integer> hoursToBooking = new LinkedList<>();
 
-//        else {
-//            for (Map.Entry<Integer, User> hour : hoursMap.entrySet()) {
-//                if () {
-//
-//                }
-//            }
-//        }
+            for (int i = startBookingHourInteger; i <= endBookingHourInteger; i++) {
+                hoursToBooking.add(i);
+            }
+
+            for (int i2 = 0; i2 < hoursToBooking.size(); i2++) {
+                if (hoursMap.get(hoursToBooking.get(i2)) == null) {
+                    CoworkingPlaceService.bookHour(coworkingPlaceToBooking, dateToBook, hoursToBooking.get(i2), user);
+                } else {
+                    System.out.println(ALREADY_BOOKED_TIME);
+                    startUserSession(user);
+                }
+            }
+        }
     }
 }
