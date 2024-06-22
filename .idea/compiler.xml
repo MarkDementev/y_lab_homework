@@ -5,6 +5,7 @@
       <module name="Coworking-Service" target="17" />
       <module name="Coworking-Service.main" target="17" />
       <module name="Coworking-Service.test" target="17" />
+      <module name="org.example.Coworking-Service" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

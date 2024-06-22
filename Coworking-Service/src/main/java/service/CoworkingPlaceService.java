@@ -100,7 +100,12 @@ public class CoworkingPlaceService {
      */
     public static void bookHour(CoworkingPlace coworkingPlaceToBooking, LocalDate dateToBook, Integer hourToBook,
                                 User user) {
-
+        for (CoworkingPlace coworkingPlace : Data.getCoworkingPlaces()) {
+            if (coworkingPlace.placeNumber == coworkingPlaceToBooking.placeNumber) {
+                Map<Integer, User> hoursMap = coworkingPlace.bookingHoursMap.get(dateToBook);
+                hoursMap.put(hourToBook, user);
+            }
+        }
     }
 
     /**

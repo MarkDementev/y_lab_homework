@@ -268,9 +268,10 @@ public class UserSession extends Session {
         if (startBookingHourInteger == endBookingHourInteger) {
             if (hoursMap.get(startBookingHourInteger) == null) {
                CoworkingPlaceService.bookHour(coworkingPlaceToBooking, dateToBook, startBookingHourInteger, user);
+            } else {
+                System.out.println(ALREADY_BOOKED_TIME);
+                startUserSession(user);
             }
-            System.out.println(ALREADY_BOOKED_TIME);
-            startUserSession(user);
         }
 
 //        else {

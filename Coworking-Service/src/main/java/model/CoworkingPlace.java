@@ -14,6 +14,13 @@ import java.util.Map;
 public class CoworkingPlace {
     public final Integer placeNumber;
     public final Boolean isConferenceRoom;
+    /**
+     * Коллекция для хранения информация о записи.
+     * Кэй мапы - это дата, на которую можно записаться.
+     * Каждой дате соответствует ещё одна мапа, где кэй - это час, а вэлью - это юзер.
+     * Если вэлью == null, значит, этот час свободен для бронирования. Если равен юзеру, значит, этот юзер забронировал
+     * этот час.
+     */
     public final Map<LocalDate, Map<Integer, User>> bookingHoursMap;
 
     public CoworkingPlace(Integer placeNumber, Boolean isConferenceRoom) {
